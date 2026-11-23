@@ -1,0 +1,6 @@
+<!doctype html><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>年齢計算 | くらしの計算ツール</title><meta name="description" content="生年月日から今日時点または指定日時点の満年齢を計算します。"><link rel="stylesheet" href="style.css"></head>
+<body><header><a href="./">くらしの計算ツール</a></header><main><h1>年齢計算</h1><div class="card"><label>生年月日</label><input id="b" type="date" value="1990-01-01"><label>基準日（空欄なら今日）</label><input id="d" type="date"><div class="out" id="o"></div></div>
+<p>満年齢は誕生日を迎えた日に1歳加算して計算しています。</p><div class="card shop"><span class="tag">作者のショップ</span>このサイトの作者が作った<a href="https://booth.pm/" rel="noopener">家計簿・ふるさと納税管理シート・2027年カレンダー</a>をBOOTHで配布・販売しています（カレンダーは無料）。</div></main>
+<footer><a href="./">ツール一覧</a> ・ <a href="privacy.html">プライバシーポリシー・免責事項</a><br>入力内容はお使いのブラウザ内だけで計算され、送信・保存されません。</footer><script>function f(){const b=new Date(document.getElementById("b").value),dv=document.getElementById("d").value,d=dv?new Date(dv):new Date();if(isNaN(b))return;let a=d.getFullYear()-b.getFullYear();if(d.getMonth()<b.getMonth()||(d.getMonth()===b.getMonth()&&d.getDate()<b.getDate()))a--;document.getElementById("o").textContent=a>=0?"満 "+a+" 歳":"基準日が生年月日より前です";}
+document.querySelectorAll("input").forEach(i=>i.addEventListener("input",f));f();</script></body></html>

@@ -17,7 +17,7 @@ tools=[('commission-fee.html','依頼料金の手取り計算','依頼料金か�
 ('tax.html','消費税計算（10%・8%）','税込・税抜の金額を10%と8%（軽減税率）で計算します。'),
 ('warikan.html','割り勘計算','合計金額と人数から1人あたりの金額を計算します。端数の扱いも選べます。')]
 page('index.html','クリエイターの計算ツール','依頼料金の手取り、同人誌の原価、締切の逆算など、イラストや同人活動で使う計算ができる無料ツール集です。',
- '<p>登録不要・無料で使える、イラスト・同人・創作活動のための計算ツールです。</p><div class="grid">'+''.join(f'<a href="{f}"><b>{t}</b><br><small>{d}</small></a>' for f,t,d in tools)+'</div>')
+ '<p>登録不要・無料で使える、イラスト・同人・創作活動のための計算ツールです。</p><div class="grid">'+''.join(f'<a href="{f}"><b>{t}</b><br><small>{d}</small></a>' for f,t,d in tools)+'</div>'+'<h2 style="font-size:1.2rem;margin-top:2rem">作者のExcelテンプレート（BOOTH）</h2>'+''.join(f'<div class="card"><b>{t}</b>（{p}）<br><img src="img/{i}.jpg" alt="{t}の画面例" style="width:100%;height:auto;margin:8px 0;border:1px solid var(--line)"><a href="https://kurashitools.booth.pm/items/{n}" rel="noopener">BOOTHで詳しく見る</a></div>' for t,p,i,n in [('イラスト依頼（コミッション）管理表','500円','commission_1','9210066'),('同人イベント 頒布・在庫・売上管理シート','500円','doujin_1','9210067'),('クリエイター向け 売上・経費 帳簿','600円','tax_1','9210071')]))
 ERAS_JS='''const ERAS=[["令和",2019,5,1],["平成",1989,1,8],["昭和",1926,12,25],["大正",1912,7,30],["明治",1868,10,23]];'''
 page('wareki.html',*tools[3][1:],'''<div class="card"><label>西暦（年）</label><input id="y" type="number" value="2027"><div class="out" id="o1"></div></div>
 <div class="card"><label>和暦</label><select id="e"></select><label>年</label><input id="n" type="number" value="9"><div class="out" id="o2"></div></div>

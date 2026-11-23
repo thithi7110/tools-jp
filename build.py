@@ -1,5 +1,5 @@
 # Generates the static pages. Edit SHOP_URL after the BOOTH shop exists.
-SHOP_URL="https://booth.pm/"  # TODO: replace with shop URL
+SHOP_URL="https://kurashitools.booth.pm/"
 import pathlib
 def page(fn,title,desc,body,js=""):
     shop=f'''<div class="card shop"><span class="tag">作者のショップ</span>このサイトの作者が作った<a href="{SHOP_URL}" rel="noopener">家計簿・ふるさと納税管理シート・2027年カレンダー</a>をBOOTHで配布・販売しています（カレンダーは無料）。</div>'''

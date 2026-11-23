@@ -1,0 +1,7 @@
+<!doctype html><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>同人誌の原価・損益分岐計算 | クリエイターの計算ツール</title><meta name="description" content="印刷費と頒布価格から、1部あたりの原価と何部で元が取れるかを計算します。"><link rel="stylesheet" href="style.css"></head>
+<body><header><a href="./">クリエイターの計算ツール</a></header><main><h1>同人誌の原価・損益分岐計算</h1><div class="card"><label>印刷部数</label><input id="n" type="number" value="100"><label>印刷費（円）</label><input id="c" type="number" value="40000"><label>その他の制作費（表紙デザイン外注・送料など）（円）</label><input id="o" type="number" value="0"><label>イベント参加費・交通費など（円）</label><input id="e" type="number" value="0"><label>頒布価格（円）</label><input id="p" type="number" value="500"><div class="out" id="r"></div></div><div class="card shop"><span class="tag">作者のショップ</span>このサイトの作者が作った<a href="https://kurashitools.booth.pm/" rel="noopener">イラスト依頼管理表・同人イベント管理シート・クリエイター向け帳簿</a>などのExcelテンプレートをBOOTHで販売しています（無料の家計簿・カレンダーもあります）。</div></main>
+<footer><a href="./">ツール一覧</a> ・ <a href="privacy.html">プライバシーポリシー・免責事項</a><br>入力内容はお使いのブラウザ内だけで計算され、送信・保存されません。</footer><script>function f(){const g=i=>+document.getElementById(i).value;const n=g("n"),total=g("c")+g("o")+g("e"),p=g("p");const fm=x=>Math.round(x).toLocaleString("ja-JP");
+let s="1部あたりの原価：約 "+(n?fm(total/n):"-")+" 円<br>損益分岐：<b>"+(p?Math.ceil(total/p):"-")+" 部</b> 頒布で元が取れます";
+if(n&&p)s+="<br>全部頒布した場合の収支："+fm(n*p-total)+" 円";document.getElementById("r").innerHTML=s}
+document.querySelectorAll("input").forEach(i=>i.addEventListener("input",f));f();</script></body></html>

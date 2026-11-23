@@ -1,0 +1,15 @@
+<!doctype html><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>締切逆算スケジュール | クリエイターの計算ツール</title><meta name="description" content="締切日と各工程の日数から、ラフ・線画・着彩などの開始日を逆算します。"><link rel="stylesheet" href="style.css"></head>
+<body><header><a href="./">クリエイターの計算ツール</a></header><main><h1>締切逆算スケジュール</h1><div class="card"><label>締切日（納品日）</label><input id="d" type="date"><label>予備日（日）</label><input id="b" type="number" value="2">
+<div id="steps"></div><button id="add" type="button" style="margin-top:8px;padding:6px 12px">工程を追加</button>
+<table style="margin-top:1rem"><thead><tr><th>工程</th><th>開始日</th><th>終了日</th></tr></thead><tbody id="o"></tbody></table></div><div class="card shop"><span class="tag">作者のショップ</span>このサイトの作者が作った<a href="https://kurashitools.booth.pm/" rel="noopener">イラスト依頼管理表・同人イベント管理シート・クリエイター向け帳簿</a>などのExcelテンプレートをBOOTHで販売しています（無料の家計簿・カレンダーもあります）。</div></main>
+<footer><a href="./">ツール一覧</a> ・ <a href="privacy.html">プライバシーポリシー・免責事項</a><br>入力内容はお使いのブラウザ内だけで計算され、送信・保存されません。</footer><script>const W="日月火水木金土";const def=[["ラフ",2],["線画",3],["着彩",4],["仕上げ",1]];const box=document.getElementById("steps");
+function row(n,d){const e=document.createElement("div");e.innerHTML=`<label>工程名と日数</label><input value="${n}" style="max-width:150px"> <input type="number" value="${d}" style="max-width:80px"> 日`;box.appendChild(e);e.querySelectorAll("input").forEach(i=>i.addEventListener("input",f))}
+def.forEach(x=>row(...x));document.getElementById("add").onclick=()=>{row("工程",1);f()};
+const t=new Date(Date.now()+14*864e5);document.getElementById("d").value=t.toISOString().slice(0,10);
+const fd=x=>(x.getUTCMonth()+1)+"/"+x.getUTCDate()+"（"+W[x.getUTCDay()]+"）";
+function f(){const v=document.getElementById("d").value;if(!v)return;const[y,m,dd]=v.split("-").map(Number);let end=Date.UTC(y,m-1,dd)-(+document.getElementById("b").value)*864e5;
+const st=[...box.children].map(e=>{const i=e.querySelectorAll("input");return[i[0].value,+i[1].value]});const out=[];
+for(let k=st.length-1;k>=0;k--){const s=end-(st[k][1]-1)*864e5;out.unshift(`<tr><td>${st[k][0]}</td><td>${fd(new Date(s))}</td><td>${fd(new Date(end))}</td></tr>`);end=s-864e5}
+document.getElementById("o").innerHTML=out.join("")}
+document.querySelectorAll("#d,#b").forEach(i=>i.addEventListener("input",f));f();</script></body></html>

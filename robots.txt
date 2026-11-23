@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://thithi7110.github.io/tools-jp/sitemap.xml

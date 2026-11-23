@@ -1,7 +1,7 @@
 <!doctype html><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>日数計算 | くらしの計算ツール</title><meta name="description" content="2つの日付の間の日数や、ある日から○日後の日付を計算します。"><link rel="stylesheet" href="style.css"></head>
-<body><header><a href="./">くらしの計算ツール</a></header><main><h1>日数計算</h1><div class="card"><label>開始日</label><input id="a" type="date"><label>終了日</label><input id="b" type="date"><div class="out" id="o1"></div></div>
-<div class="card"><label>基準日</label><input id="c" type="date"><label>何日後（前の場合はマイナス）</label><input id="n" type="number" value="100"><div class="out" id="o2"></div></div><div class="card shop"><span class="tag">作者のショップ</span>このサイトの作者が作った<a href="https://kurashitools.booth.pm/" rel="noopener">家計簿・ふるさと納税管理シート・2027年カレンダー</a>をBOOTHで配布・販売しています（カレンダーは無料）。</div></main>
+<title>日数計算 | クリエイターの計算ツール</title><meta name="description" content="2つの日付の間の日数や、ある日から○日後の日付を計算します。"><link rel="stylesheet" href="style.css"></head>
+<body><header><a href="./">クリエイターの計算ツール</a></header><main><h1>日数計算</h1><div class="card"><label>開始日</label><input id="a" type="date"><label>終了日</label><input id="b" type="date"><div class="out" id="o1"></div></div>
+<div class="card"><label>基準日</label><input id="c" type="date"><label>何日後（前の場合はマイナス）</label><input id="n" type="number" value="100"><div class="out" id="o2"></div></div><div class="card shop"><span class="tag">作者のショップ</span>このサイトの作者が作った<a href="https://kurashitools.booth.pm/" rel="noopener">イラスト依頼管理表・同人イベント管理シート・クリエイター向け帳簿</a>などのExcelテンプレートをBOOTHで販売しています（無料の家計簿・カレンダーもあります）。</div></main>
 <footer><a href="./">ツール一覧</a> ・ <a href="privacy.html">プライバシーポリシー・免責事項</a><br>入力内容はお使いのブラウザ内だけで計算され、送信・保存されません。</footer><script>const t=new Date().toISOString().slice(0,10);["a","b","c"].forEach(i=>document.getElementById(i).value=t);
 const D=s=>{const[y,m,d]=s.split("-").map(Number);return Date.UTC(y,m-1,d)};const W="日月火水木金土";
 function f(){const a=document.getElementById("a").value,b=document.getElementById("b").value;if(a&&b){const n=(D(b)-D(a))/864e5;document.getElementById("o1").textContent=n+" 日（両端を含めると "+(n+(n>=0?1:-1))+" 日）";}
